@@ -1,0 +1,149 @@
+
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-size: 25px;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+.container{
+    width: 70%;
+    border: 3px solid red;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-grow: 1;
+
+    background-image: url("/docs/img/blackjack-bg1.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:center;
+}
+.table-setup{
+    /* height: 60%; */
+    padding: 2em;
+    width: 80%;
+    border: 3px solid blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* flex:0; */
+}
+.title{
+    color: white;
+    border: 3px solid red;
+    /* flex-grow: 1; */
+}
+.msg{
+    border: 3px solid red;
+    color: purple;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* flex-grow: 1; */
+}
+.cards{
+    display: flex;
+    gap: 10px;
+    border: 3px solid black;
+    margin-bottom: 20px;
+
+}
+.card{
+    max-width: 150px;
+}
+.btns{
+    border: 3px solid black;
+    width: 95%;
+    display: flex;    
+    gap: 5px;
+    justify-content: center;
+    flex: 1;
+}
+.btn{
+    padding: 1em;
+    max-width: 200px;
+    flex:1;
+    align-self: flex-start;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+}
+.btn:hover{
+    box-shadow: inset 0 0 15px rgba(255,255,255, 0.986);
+}
+.hit{
+    background-color: red;
+}
+.pass{
+    background-color: blue;
+}
+.newgame{
+    background-color: green;
+}
+
+@media screen and (max-width: 545px){
+    .table-setup{
+        /* height: 60%; */
+        padding: 0;
+    }
+    .card{
+        width: 70px;
+    }
+    .btn{
+        font-size: 15px;
+        font-weight: 700;
+    }
+}
+@media screen and (min-width: 546px)
+and (max-width: 850px){
+    .table-setup{
+        /* height: 60%; */
+        padding: 1em;
+    }
+    .card{
+        width: 100px;
+    }
+    .btn{
+        font-size: 15px;
+        font-weight: 700;
+    }
+}
+
+/* @media screen and (max-width: 600px){
+    .title{
+        font-size: 20px;
+    }
+    .table-setup{
+        background-color: red;
+    }
+    .cards{
+        margin: 10px 0px 10px;
+        flex-wrap: nowrap;
+    }
+    .card{
+        width: 60px;
+    }
+    .btns{
+        flex-wrap: nowrap;
+    }
+    .btn{
+        padding: 0.5em;
+        width: 80px;
+        font-size: 0.5em;
+    }
+    .msg{
+       font-size: 15px;
+    }
+} */
