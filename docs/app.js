@@ -59,87 +59,115 @@ let pix =
 //make array out of 'pix'-javascript object
 const pixArr = Object.entries(pix);
 
-
-
-// filter out the src by getting the second array out of the 
-// testRand array
-
-
 /* -------------------------all declarations here--------------------*/
 const tableCards = document.getElementById('cards');
 const hitBtn = document.getElementById('hit-btn');
 const newgameBtn = document.getElementById('newgame-btn');
-const passBtn = document.getElementById('pass-btn');
 const msg = document.getElementById('message');
-let count = 0;
+const res = document.getElementById('result');
+let nextCard ='';
 let cardVal = 0;
 let cardHolder = '';
-let randomCard = '';
-
-/* ---------------------------------------------------------------------*/
-newgameBtn.addEventListener('click', function(){
-    count = 0;
-    cardVal = 0;
-    cardHolder = '';
-    msg.textContent = "Press HIT to get a card";
-})
+let randomCard1 = '';
+let randomCard2 = '';
+let hitStatus = false;
+const resText = `Total cardvalue: `
+res.textContent = resText + cardVal;
+hitBtn.style.display = 'none';
 /* --------------------------all eventListeners here-------------------*/
 hitBtn.addEventListener('click', function() {
-//get an an random card by using the randomCardPicker() function call
-randomCard =  pixArr[randomCardPicker()];
+    //call the renderGame function to check the cardvalues before rendering anything first!
+    hitStatus = true;
+    renderGame(hitStatus);
+    
+})
+newgameBtn.addEventListener('click', function(){
+    
+    cardHolder = '';
+    cardVal = 0;
+    msg.textContent = "";
+    hitBtn.style.display = "inline";
+    res.style.color = 'aqua';
 
+    // filter out the src of the card, by getting it out of the pixArr array by using 
+    // randomCardPicker() function you give a random index position of the array (pixArr)
+    randomCard1 =  pixArr[randomCardPicker()];
+    cardVal = calcCardValue(randomCard1)
+    randomCard2 = pixArr[randomCardPicker()];
+    cardVal = calcCardValue(randomCard2)
+    res.textContent = resText + cardVal;
     cardHolder += 
     ` 
-        <img class="card" src="${randomCard[1]}">      
-
+        <img class="card" src="${randomCard1[1]}"> 
+        <img class="card" src="${randomCard2[1]}">     
     `
     tableCards.innerHTML = cardHolder;
-
-    if(randomCard[0].includes(2)) cardVal +=2;
-    else if (randomCard[0].includes(3)) cardVal +=3;
-    else if (randomCard[0].includes(4)) cardVal +=4;
-    else if (randomCard[0].includes(5)) cardVal +=5;
-    else if (randomCard[0].includes(6)) cardVal +=6;
-    else if (randomCard[0].includes(7)) cardVal +=7;
-    else if (randomCard[0].includes(8)) cardVal +=8;
-    else if (randomCard[0].includes(9)) cardVal +=9;
-    else if (randomCard[0].includes(10) || 
-            randomCard[0].includes('jack') || 
-            randomCard[0].includes('quee') ||
-            randomCard[0].includes('king') ) cardVal +=10;
-    else if (randomCard[0].includes('ace')) cardVal +=11;
-
-    if(cardVal>21){
-        msg.textContent = "ooohhhh you've exceeded 21 🤪, so you lost this game. Try a new game!😃"
-        
-    }else if (cardVal === 21){
-        msg.textContent = "YEAAAHHHH you've 🎊🎈🎉BLACKJACK 🎊🎈🎉"
-    }
-    else{
-        msg.textContent = "would you like another card? if Yes, press HIT-button! else press PASS-button."
-    }
+    hitStatus = false;
+    renderGame(hitStatus);
+    // res.textContent = resText + cardVal;
 })
 
-/* ---------------------------------------------------------------------*/
-
-
 /* ------------------------all Function declarations-----------------*/
-function randomCardPicker(){
+function randomCardPicker(hitStatus){
     let rand = Math.floor(Math.random() * 52);
     return rand;
 }
+function renderGame(hitStatus){
+    
+    if(cardVal < 21 && hitStatus){
+        msg.textContent = "would you like another card? if Yes, press HIT-button!"
+        nextCard = pixArr[randomCardPicker()];
+        cardHolder += `<img class="card" src="${nextCard[1]}">`
+        tableCards.innerHTML = cardHolder;
+        cardVal = calcCardValue(nextCard)
 
-// console.log(randomCard());
+        res.textContent = resText + cardVal;
+        // hitStatus = false;
+    } 
+     if(cardVal>21){
+        msg.textContent = "🤪You Lost This Game🤪!! Give it a new try😃"
+        res.textContent = resText + cardVal;
+        res.style.color = 'red';
+    }
+// console.log(hitStatus)
+       
+        if (cardVal === 21 && !hitStatus){
+            msg.textContent = "♠️♦️♣️♥️ BLACKJACK ♠️♦️♣️♥️"
+            res.textContent = resText + cardVal;
+            hitBtn.style.display = "none";
+            console.log(hitStatus)
+            // break;
+        } else if (cardVal === 21 && hitStatus){
+            msg.textContent = "🎊🎈🎉Congrats, You have cardvalue of 21🎊🎈🎉"
+            res.textContent = resText + cardVal;
+        }
 
+
+}
+
+// Here we check the randomly chosen array wich is passed in here (randomCard), then check its first-index value
+// which is the name of the card (e.g. spades_2 or diamond_king). If it includes the string "2/3/queen/etc.."
+// it will get the correct value and this value will be assigned to cardVal variable and returned so 
+// we can evaluate the random cards total values and so continue the game accordingly.
+function calcCardValue(randomCard){
+
+    if(randomCard[0].includes(2)) return cardVal +=2;
+    else if (randomCard[0].includes(3)) return cardVal +=3;
+    else if (randomCard[0].includes(4)) return cardVal +=4;
+    else if (randomCard[0].includes(5)) return cardVal +=5;
+    else if (randomCard[0].includes(6)) return cardVal +=6;
+    else if (randomCard[0].includes(7)) return cardVal +=7;
+    else if (randomCard[0].includes(8)) return cardVal +=8;
+    else if (randomCard[0].includes(9)) return cardVal +=9;
+    else if (randomCard[0].includes(10) || 
+            randomCard[0].includes('jack') || 
+            randomCard[0].includes('quee') ||
+            randomCard[0].includes('king') ) return cardVal +=10;
+    else if (randomCard[0].includes('ace')) return cardVal +=11;
+}
 /* ----------------------------------------------------------------------*/
 
 
-//Making possible to start new game by ckicking the 'New game' button.
-
-
-
-
-//Making possible to start new game by ckicking the 'New game' button.
 
 
 
