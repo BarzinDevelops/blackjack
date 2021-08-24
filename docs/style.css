@@ -22,12 +22,9 @@ body{
     align-items: center;
     gap: 20px;
     flex-grow: 1;
-<<<<<<< HEAD
+
     /* background-image: url("/docs/img/blackjack-bg1.jpg"); */
     background-image: url("./img/blackjack-bg1.jpg");
-=======
-    background-image: url("/docs/img/blackjack-bg1.jpg");
->>>>>>> bd04ebc7bbc82e102952c0a99729c4758ad2af7e
     background-size: contain;
     background-repeat: no-repeat;
     background-position:center;
