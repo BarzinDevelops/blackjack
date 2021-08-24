@@ -22,12 +22,10 @@ body{
     align-items: center;
     gap: 20px;
     flex-grow: 1;
-
     background-image: url("/docs/img/blackjack-bg1.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position:center;
-
     position: relative;
 }
 .table-setup{
