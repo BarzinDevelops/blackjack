@@ -14,6 +14,7 @@ body{
     display: flex;
     justify-content: center;
 }
+
 .container{
     width: 70%;
     background-color: black;
@@ -22,32 +23,46 @@ body{
     align-items: center;
     gap: 20px;
     flex-grow: 1;
-
-    /* background-image: url("/docs/img/blackjack-bg1.jpg"); */
     background-image: url("img/blackjack-bg1.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position:center;
     position: relative;
+   
 }
+
 .table-setup{
     padding: 0;
     width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    top: 25%;
-    bottom: 30%;
+    margin-top: 20vh;
 }
+
+.logo {
+    position: absolute;
+    background-image: url("img/blackjack-logo3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100px;
+    height: 200px;
+    top: 0;
+    left: 0;
+
+  }
 .title{
     color: goldenrod;
-    font-size: 1.5 rem;
+    font-size: 1.5em;
+    flex: 1;
+
 }
+
 .msg{
     color: whitesmoke;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 1em;
 }
 .cards{
     display: flex;
@@ -55,7 +70,7 @@ body{
     margin-bottom: 20px;
 }
 .card{
-    max-width: 150px;
+    max-width: 100px;
 }
 .btns{
     width: 60%;
@@ -66,11 +81,9 @@ body{
 }
 .btn{
     padding: 1em;
-    max-width: 200px;
+    min-width: 100px;
     flex:1;
     align-self: flex-start;
-    font-size: 20px;
-    font-weight: 700;
     border: none;
     border-radius: 10px;
 }
@@ -88,144 +101,53 @@ body{
     color: aqua;
 }
 
-@media screen and (min-width: 821px)
-{
+@media screen and (min-width: 501px) {
     .table-setup{
-        top: 18%;
-        bottom: 30%;
-    }
-    .cards{
-        margin-bottom: 5px;
-        /* border: 3px solid blue; */
-    }
+        /* width:  100%; */
+        margin-top: 25vh;
+    }    
     .card{
-        width: 130px;
-        margin-bottom:5px;
-    }
-    .result{
-        font-size: 18px;
-        color: aqua;
-    }
-}
-
-@media screen and (min-width: 675px) and (max-width: 820px){
-    .table-setup{
-        top: 25%;
-        bottom: 30%;
-    }
-    .cards{
-        margin-bottom: 5px;
-        /* border: 3px solid blue; */
-    }
-    .card{
-        width: 110px;
-        margin-bottom:5px;
-    }
-    .msg{
-        font-size: 18px;
-    }
-    .btn{
-        font-size: 15px;
-        font-weight: 700;
-        margin-bottom: 3px;
-    }
-    .result{
-        font-size: 18px;
-        color: aqua;
-    }
-}
-
-@media screen and (min-width: 575px) and (max-width: 674px){
-
-    .table-setup{
-        top: 29%;
-        bottom: 40%;
-    }
-    .cards{
-        margin: 0;
-    }
-    .card{
-        width: 90px;
-        margin-bottom: 5px;
-        padding: 0;
+        max-width: 2.5em;
     }
     .title{
-        font-size: 20px;
-    }
-    .msg{
-        font-size: 16px;
-    }
-    .btn{
-        font-size: 13px;
-        font-weight: 700;
-        margin-bottom: 3px;
-    }
-    .result{
-        font-size: 18px;
-        color: aqua;
-    }
-}
-
-@media screen and (min-width: 491px) and (max-width: 574px){
-
-    .table-setup{
-        top: 31%;
-        bottom: 40%;
-    }
-    .cards{
-        margin: 0;
-    }
-    .card{
-        width: 75px;
-        margin-bottom: 5px;
-        padding: 0;
-    }
-    .title{
-        font-size: 20px;
-    }
-    .msg{
-        font-size: 17px;
-    }
-    .btn{
-        font-size: 13px;
-        font-weight: 700;
-        margin-bottom: 3px;
-    }
-    .result{
-        font-size: 18px;
-        color: aqua;
-    }
-}
-
-@media screen and (max-width: 490px) {
-    body{
-        min-width: 415px;
-    }
-    .table-setup{
-        top: 33%;
-        bottom: 40%;
-    }
-    .cards{
-        margin: 0;
-    }
-    .card{
-        width: 65px;
-        margin-bottom: 5px;
-        padding: 0;
-    }
-    .title{
-        font-size: 20px;
+        font-size: 1em;
     }
     .msg{
         font-size: 15px;
     }
-    .btn{
-        font-size: 10px;
-        font-weight: 700;
-        margin-bottom: 3px;
+}
+
+@media screen and (max-width: 500px) {
+    .table-setup{
+        flex-wrap: wrap;
+        width: 98vw;
+        margin-top: 22vh;
+    }  
+    .card{
+        max-width: 1.5em;
     }
-    .result{
-        font-size: 18px;
-        color: aqua;
+    .title{
+        font-size: 0.7em;
+        margin: 0;
+    }
+    .msg{
+        word-wrap: break-word;
+        max-width: 25ch;
+        font-size: 0.50em;
+        text-align: center;    
+       margin: 0 0 3px;
+       min-height: 2.7em;
+    }
+    .logo{
+        max-width: 50px;
+    }
+    .btn{
+        padding: 0.75em;
+        max-width: 40px;
+        flex: 1 2 0;
+        /* align-self: flex-start;
+        border: none;
+        border-radius: 10px; */
     }
 }
+
