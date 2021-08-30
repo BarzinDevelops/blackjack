@@ -99,8 +99,11 @@ body{
     .msg{
         margin-top: -30px;
     }
+    .cards{
+        gap: 5px;
+    }
     .card{
-        width: 80px;
+        width: 72px;
     }
     .middle{
         row-gap: 6px;
@@ -134,5 +137,62 @@ body{
     }
     .result{
         font-size: 0.6em;
+    }
+}
+
+@media screen and (max-height: 4800px) {
+    .card{
+        width: 50px;
+    }
+    .btn{
+        padding: 0.3em;
+    }
+    
+    .msg{
+        font-size: 0.5em;
+    }
+    .middle{
+        row-gap: 5px;
+    }
+    .result{
+        font-size: 0.6em;
+    }
+}
+
+@media screen and (min-height: 481px) {
+    .card{
+        width: 70px;
+    }
+    .btn{
+        padding: 0.9em;
+    }
+    
+    .msg{
+        font-size: 0.7em;
+    }
+
+}
+@media screen and (min-height: 550px) {
+    .card{
+        width: 90px;
+    }
+    .btn{
+        padding: 0.9em;
+    }
+    
+    .msg{
+        font-size: 0.7em;
+    }
+}
+@media screen and (min-height: 715px) {
+    .card{
+        width: 110px;
+    }
+    .btn{
+        padding: 0.9em;
+    }
+    
+    .msg{
+        font-size: 0.7em;
     }
 }
