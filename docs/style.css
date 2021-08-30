@@ -99,10 +99,6 @@ body{
     .card{
         max-width: 60px;
     }
-    .cards{
-        border: 3px solid blue;
-        /* width: ; */
-    }
     .title{
         font-size: 0.7em;
     }
