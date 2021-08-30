@@ -75,14 +75,17 @@ const resText = `Total cardvalue: `
 res.textContent = resText + cardVal;
 hitBtn.style.display = 'none';
 /* --------------------------all eventListeners here-------------------*/
+
 hitBtn.addEventListener('click', function() {
     //call the renderGame function to check the cardvalues before rendering anything first!
     hitStatus = true;
     renderGame(hitStatus);
+
     
 })
 newgameBtn.addEventListener('click', function(){
-    
+
+    msg.style.backgroundColor = ""
     cardHolder = '';
     cardVal = 0;
     msg.textContent = "";
@@ -104,7 +107,6 @@ newgameBtn.addEventListener('click', function(){
     tableCards.innerHTML = cardHolder;
     hitStatus = false;
     renderGame(hitStatus);
-    // res.textContent = resText + cardVal;
 })
 
 /* ------------------------all Function declarations-----------------*/
@@ -113,34 +115,42 @@ function randomCardPicker(hitStatus){
     return rand;
 }
 function renderGame(hitStatus){
-    
+
     if(cardVal < 21 && hitStatus){
-        msg.textContent = "would you like another card? if Yes, press HIT-button!"
+        msg.textContent = "Press HIT-button for new card!"
         nextCard = pixArr[randomCardPicker()];
         cardHolder += `<img class="card" src="${nextCard[1]}">`
         tableCards.innerHTML = cardHolder;
         cardVal = calcCardValue(nextCard)
 
         res.textContent = resText + cardVal;
-        // hitStatus = false;
-    } 
-     if(cardVal>21){
-        msg.textContent = "🤪You Lost This Game🤪!! Give it a new try😃"
+    } else if (cardVal < 21 && !hitStatus) {
+        msg.style.backgroundColor = 'none' ;
+        msg.textContent = "Press HIT-button for new card!"
+    }
+    if(cardVal>21){
+        
+        msg.textContent = "🤪You Lost🤪!! Give it a new try😃"
         res.textContent = resText + cardVal;
         res.style.color = 'red';
+        hitBtn.style.display = "none";
+        msg.style.backgroundColor = 'red' ;
+    }       
+
+    if (cardVal === 21 && !hitStatus){
+        msg.style.backgroundColor = 'coral' ;
+        msg.textContent = "♠️♦️♣️♥️ BLACKJACK ♠️♦️♣️♥️"
+        res.textContent = resText + cardVal;
+        hitBtn.style.display = "none";
+        console.log(hitStatus)
+
+    } else if (cardVal === 21 && hitStatus){
+        msg.textContent = "🎊🎈🎉 Congrats, You have 21 🎊🎈🎉"
+        msg.style.backgroundColor = 'blue' ;
+        res.textContent = resText + cardVal;
+        hitBtn.style.display = "none";
     }
-// console.log(hitStatus)
-       
-        if (cardVal === 21 && !hitStatus){
-            msg.textContent = "♠️♦️♣️♥️ BLACKJACK ♠️♦️♣️♥️"
-            res.textContent = resText + cardVal;
-            hitBtn.style.display = "none";
-            console.log(hitStatus)
-            // break;
-        } else if (cardVal === 21 && hitStatus){
-            msg.textContent = "🎊🎈🎉Congrats, You have cardvalue of 21🎊🎈🎉"
-            res.textContent = resText + cardVal;
-        }
+   
 
 
 }

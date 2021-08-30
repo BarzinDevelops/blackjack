@@ -40,14 +40,14 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 5px;
 }
 .logo {
     
     background-image: url("img/blackjack-logo3.png");
     background-repeat: no-repeat;
     background-size: contain;
-    min-width: 80px;
+    min-width: 70px;
     min-height: 60px;
   }
   .title{
@@ -84,7 +84,7 @@ body{
 .cards{
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 3px;
 }
 .card{
     width: 110px;
@@ -94,37 +94,21 @@ body{
     color: aqua;
 }
 
-@media screen and (min-width: 451px) and (max-width: 650px) {
-
-    .msg{
-        margin-top: -30px;
-    }
-    .cards{
-        gap: 5px;
-    }
-    .card{
-        width: 72px;
-    }
-    .middle{
-        row-gap: 6px;
-    }
-    .btn{
-        flex: 1;
-        max-width: 100px;
-        min-width: 95px;
-        padding: 0.5em;
-    }
-}
 
 @media screen and (max-width: 450px) {
     .card{
-        width: 55px;
+        max-width: 60px;
+    }
+    .cards{
+        border: 3px solid blue;
+        /* width: ; */
     }
     .title{
-        font-size: 1em;
+        font-size: 0.7em;
     }
     .msg{
-        font-size: 0.65em;
+        font-size: 0.6em;
+    
     }
     .btn{
         flex: 1;
@@ -138,9 +122,35 @@ body{
     .result{
         font-size: 0.6em;
     }
+
 }
 
-@media screen and (max-height: 4800px) {
+@media screen and (min-width: 451px) and (max-width: 650px) {
+    .title{
+        font-size: 0.9em;
+    }
+    .msg{
+        margin-top: -30px;
+    }
+    .cards{
+        gap: 5px;
+    }
+    .card{
+        width: 60px;
+    }
+    .middle{
+        row-gap: 6px;
+    }
+    .btn{
+        flex: 1;
+        max-width: 100px;
+        min-width: 95px;
+        padding: 0.5em;
+    }
+}
+
+
+@media screen and (max-height: 480px) {
     .card{
         width: 50px;
     }
