@@ -1,94 +1,72 @@
 
-
 *, *::before, *::after{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    
+    box-sizing: border-box;  
 }
 body{
+    padding: 0;
+    margin: 0;
     font-size: 25px;
     width: 100%;
     height: 100vh;
     background-color: black;
-    display: flex;
-    justify-content: center;
+    color: wheat;
 }
-
 .container{
-    width: 70%;
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    flex-grow: 1;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+}
+.table-setup{
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-template-columns: 1fr 2fr 1 fr ;
     background-image: url("img/blackjack-bg1.jpg");
     background-size: contain;
-    background-repeat: no-repeat;
     background-position:center;
-    position: relative;
-   
-}
-
-.table-setup{
-    padding: 0;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
+    background-repeat: no-repeat;
     align-items: center;
-    margin-top: 20vh;
 }
-
+.middle{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    row-gap: 10px;
+}
+.logo-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
 .logo {
-    position: absolute;
+    
     background-image: url("img/blackjack-logo3.png");
     background-repeat: no-repeat;
     background-size: contain;
-    width: 100px;
-    height: 200px;
-    top: 0;
-    left: 0;
-
+    min-width: 80px;
+    min-height: 60px;
   }
-.title{
+  .title{
     color: goldenrod;
-    font-size: 1.5em;
-    flex: 1;
-
-}
-
-.msg{
-    color: whitesmoke;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 1em;
-}
-.cards{
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-.card{
-    max-width: 100px;
+    font-size: 1.2em;
+    margin-left: 10px;
 }
 .btns{
-    width: 60%;
-    display: flex;    
-    gap: 8px;
+    display: flex;
+    gap: 5px;
     justify-content: center;
-    flex: 1;
 }
 .btn{
+    flex: 1;
+    max-width: 100px;
+    min-width: 95px;
     padding: 1em;
-    min-width: 100px;
-    flex:1;
-    align-self: flex-start;
     border: none;
     border-radius: 10px;
-}
-.btn:hover{
-    box-shadow: inset 0 0 15px rgba(255,255,255, 0.986);
 }
 .hit{
     background-color: red;
@@ -96,58 +74,65 @@ body{
 .newgame{
     background-color: green;
 }
+.btn:hover{
+    box-shadow: inset 0 0 15px rgba(255,255,255, 0.986);
+}
+.msg{
+    margin-top: -30px;
+    font-size: 0.75em;
+}
+.cards{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.card{
+    width: 110px;
+}
 .result{
     font-size: 18px;
     color: aqua;
 }
 
-@media screen and (min-width: 501px) {
-    .table-setup{
-        /* width:  100%; */
-        margin-top: 25vh;
-    }    
+@media screen and (min-width: 451px) and (max-width: 650px) {
+
+    .msg{
+        margin-top: -30px;
+    }
     .card{
-        max-width: 2.5em;
+        width: 80px;
+    }
+    .middle{
+        row-gap: 6px;
+    }
+    .btn{
+        flex: 1;
+        max-width: 100px;
+        min-width: 95px;
+        padding: 0.5em;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .card{
+        width: 55px;
     }
     .title{
         font-size: 1em;
     }
     .msg{
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .table-setup{
-        flex-wrap: wrap;
-        width: 98vw;
-        margin-top: 22vh;
-    }  
-    .card{
-        max-width: 1.5em;
-    }
-    .title{
-        font-size: 0.7em;
-        margin: 0;
-    }
-    .msg{
-        word-wrap: break-word;
-        max-width: 25ch;
-        font-size: 0.50em;
-        text-align: center;    
-       margin: 0 0 3px;
-       min-height: 2.7em;
-    }
-    .logo{
-        max-width: 50px;
+        font-size: 0.65em;
     }
     .btn{
-        padding: 0.75em;
-        max-width: 40px;
-        flex: 1 2 0;
-        /* align-self: flex-start;
-        border: none;
-        border-radius: 10px; */
+        flex: 1;
+        max-width: 100px;
+        min-width: 95px;
+        padding: 0.5em;
+    }
+    .middle{
+        row-gap: 5px;
+    }
+    .result{
+        font-size: 0.6em;
     }
 }
-

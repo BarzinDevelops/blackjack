@@ -10,17 +10,23 @@
 <body>
 
     <main class="container">
-        <div class="logo"></div>
-        <div class="table-setup">
-            
+        <div class="logo-title">
+            <div class="logo"></div>
             <div id="title" class="title">Welcome to my BlackJack</div>
-            <div id="message" class="msg">Hit the New Game button to start</div>
-            <div id="cards" class="cards"></div>
-            <div id="btns" class="btns">
-                <button id="newgame-btn" class="newgame btn">New Game</button>
-                <button id="hit-btn" class="hit btn">HIT</button>
+        </div>
+
+        <div class="table-setup">
+            <div class="side-left"></div>
+            <div class="middle">
+                <div id="message" class="msg">Hit the New Game button to start</div>
+                <div id="cards" class="cards"></div>
+                <div id="btns" class="btns">
+                    <button id="newgame-btn" class="newgame btn">New Game</button>
+                    <button id="hit-btn" class="hit btn">HIT</button>
+                </div>
+                <span id="result" class="result"></span>
             </div>
-            <span id="result" class="result"></span>
+            <div class="side-right"></div>
         </div>
     </main>
     <script src="app.js"></script>
